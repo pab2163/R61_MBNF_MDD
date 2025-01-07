@@ -50,7 +50,8 @@ else:
 # if there is no command line argument 3 -- use empty string
 # otherwise, use that as rum number
 if num_cmd_line_arguments >= 3:
-    input_run = sys.argv[2]
+    input_run = str(int(sys.argv[2]))
+    print(f'INPUT RUN IS {input_run}')
 else:
     input_run = ''
 
@@ -103,7 +104,8 @@ while expInfo['feedback_on'] not in ['Feedback', 'No Feedback']:
     if dlg.OK == False: 
         core.quit()  # user pressed cancel
 
-
+# make sure run is a string that looks like 1, 2, 3, etc (not 01)
+expInfo['run']=str(int(expInfo['run']))
 
 # Hard code other experiment info 
 ## Timestamp

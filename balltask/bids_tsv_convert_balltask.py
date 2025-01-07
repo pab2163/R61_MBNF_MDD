@@ -29,7 +29,7 @@ def convert_balltask_csv_to_bids(infile):
     df['pda']=df.cen_signal-df.dmn_signal
     df['cen_hit']=np.where(df.cen_cumulative_hits.diff(periods=-1) == -1, 1, 0)
     df['dmn_hit']=np.where(df.dmn_cumulative_hits.diff(periods=-1) == -1, 1, 0)
-    df['participant']=slider_outputs['id'][0]
+    df['participant']=str(slider_outputs['id'][0])
     df.participant = "sub-" + df.participant
     df['run'] = slider_outputs['run'][0]
     df['feedback_on'] = slider_outputs['feedback_on'][0]
